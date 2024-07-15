@@ -1,4 +1,4 @@
-import type { ComposerTranslation } from '@nuxtjs/i18n/dist/runtime/composables'
+import type { ComposerTranslation } from 'vue-i18n'
 
 export function formatMultiPartSpan (t: ComposerTranslation, key: string, classes: (string | undefined)[], options?: any) {
   const parts = classes.map((c, index) => {
