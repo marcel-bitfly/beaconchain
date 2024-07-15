@@ -40,7 +40,7 @@ export function useCustomFetch () {
     let baseURL = map.mock ? '../mock' : map.legacy ? legacyApiClient : apiClient
     const ssrSecret = pConfig?.ssrSecret
 
-    if (process.server) {
+    if (isServer) {
       baseURL = map.mock ? `${domain || url.origin.replace('http:', 'https:')}/mock` : map.legacy ? pConfig?.legacyApiServer : pConfig?.apiServer
     }
 
@@ -57,7 +57,7 @@ export function useCustomFetch () {
     options.credentials = 'include'
     const method = options.method || map.method || 'GET'
 
-    if (process.server && logIp === 'LOG') {
+    if (isServer && logIp === 'LOG') {
       $bcLogger.warn(`${uuid?.value} | x-forwarded-for: ${xForwardedFor}, x-real-ip: ${xRealIp} | ${method} -> ${pathName}, hasAuth: ${!!apiKey}`, headers)
     }
 
