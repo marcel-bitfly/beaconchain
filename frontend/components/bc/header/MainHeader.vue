@@ -153,12 +153,12 @@ $smallHeaderThreshold: 1024px;
   width: 100%;
   justify-content: center;
   border-bottom: 1px solid var(--container-border-color);
+  background-color: var(--container-background);
   &.hide-because-it-is-unfinished {  // TODO: once the searchbar is enabled in production, delete this block (because border-bottom is always needed, due to the fact that the lower header is always visible (it contains the search bar when the screeen is narrow, otherwise the logo and mega menu))
     @media (max-width: $smallHeaderThreshold) {
       border-bottom: none;
     }
   }
-  background-color: var(--container-background);
   .top-background {
     position: absolute;
     width: 100%;
@@ -171,19 +171,19 @@ $smallHeaderThreshold: 1024px;
     display: grid;
     grid-template-columns: 0px min-content min-content auto min-content 0px;  // the 0px are paddings, useless now but they exist in the structure of the grid so ready to be set if they are wanted one day
     grid-template-rows: var(--navbar-height) minmax(var(--navbar2-height), min-content);
+    width: var(--content-width);
+    color: var(--header-top-font-color);
+    font-family: var(--main_header_font_family);
+    font-size: var(--main_header_font_size);
+    font-weight: var(--main_header_font_weight);
     @media (max-width: $smallHeaderThreshold) {
       grid-template-columns: 0px min-content auto min-content 0px;  // same remark about the 0px
       grid-template-rows: var(--navbar-height) min-content;
     }
-    width: var(--content-width);
-    color: var(--header-top-font-color);
     @mixin bottom-cell($row) {
       color: var(--container-color);
       grid-row: $row;
     }
-    font-family: var(--main_header_font_family);
-    font-size: var(--main_header_font_size);
-    font-weight: var(--main_header_font_weight);
     .bold {
       font-weight: var(--main_header_bold_font_weight);
     }
@@ -201,6 +201,7 @@ $smallHeaderThreshold: 1024px;
     }
 
     .blockchain-info {
+      margin-right: var(--padding-large);
       @media (min-width: $smallHeaderThreshold) {
         grid-row: 1;
         grid-column: 2;
@@ -209,7 +210,6 @@ $smallHeaderThreshold: 1024px;
       @media (max-width: $smallHeaderThreshold) {
         display: none;
       }
-      margin-right: var(--padding-large);
       .network-icon {
         vertical-align: middle;
         height: 18px;
@@ -229,11 +229,11 @@ $smallHeaderThreshold: 1024px;
       .bar {
         position: relative;
         width: 100%;
+        margin-top: var(--content-margin);
+        margin-bottom: var(--content-margin);
         @media (min-width: $smallHeaderThreshold) {
           max-width: 460px;
         }
-        margin-top: var(--content-margin);
-        margin-bottom: var(--content-margin);
       }
     }
 
@@ -241,16 +241,16 @@ $smallHeaderThreshold: 1024px;
       user-select: none;
       grid-row: 1;
       grid-column: 5;
+      justify-content: right;
       @media (max-width: $smallHeaderThreshold) {
         grid-column: 4;
       }
-      justify-content: right;
 
       .currency {
+        color: var(--header-top-font-color);
         @media (max-width: $mobileHeaderThreshold) {
           display: none;
         }
-        color: var(--header-top-font-color);
       }
       .logged-out {
         white-space: nowrap;
@@ -279,23 +279,23 @@ $smallHeaderThreshold: 1024px;
         }
       }
       .burger {
+        height: 24px;
+        cursor: pointer;
         @media (min-width: $smallHeaderThreshold) {
           display: none;
         }
-        height: 24px;
-        cursor: pointer;
       }
     }
 
     .explorer-info {
       grid-column: 2;
+      height: unset;
       @media (min-width: $smallHeaderThreshold) {
         @include bottom-cell(2);
       }
       @media (max-width: $smallHeaderThreshold) {
         grid-row: 1;
       }
-      height: unset;
 
       .logo {
         display: flex;
@@ -338,16 +338,16 @@ $smallHeaderThreshold: 1024px;
         position: relative;
         margin-top: auto;
         font-size: var(--tiny_text_font_size);
+        line-height: 10px;
+        color: var(--megamenu-text-color);
         @media (max-width: $mobileHeaderThreshold) {
           margin-bottom: auto;
           font-size: var(--button_font_size);
         }
-        color: var(--megamenu-text-color);
         @media (max-width: $smallHeaderThreshold) { // when it is in the upper header...
           // ... the background is always dark blue (no matter the theme (dark/light)), so we need a light grey:
           color: var(--grey);
         }
-        line-height: 10px;
       }
     }
 

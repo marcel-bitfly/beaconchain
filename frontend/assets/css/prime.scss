@@ -453,10 +453,10 @@
   border: 1px solid var(--input-border-color);
   color: var(--input-active-text-color);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
+  transform: translateY(-1px);
   &.header {
     border-radius: var(--border-radius);
   }
-  transform: translateY(-1px);
   &.table {
     background: var(--background-color);
   }
