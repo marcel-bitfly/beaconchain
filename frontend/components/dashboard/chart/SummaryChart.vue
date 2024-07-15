@@ -87,7 +87,7 @@ const fontWeightLight = parseInt(styles.getPropertyValue('--roboto-light'))
 const fontWeightMedium = parseInt(styles.getPropertyValue('--roboto-medium'))
 
 const option = computed(() => {
-  if (data === undefined) {
+  if (data.value === undefined) {
     return undefined
   }
 

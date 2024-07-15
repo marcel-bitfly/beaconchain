@@ -43,7 +43,7 @@ const buttonList = ValidatorDashboardNetworkList.map((chainId) => {
   }
 })
 
-const emit = defineEmits<{(e: 'next'): void, (e: 'back'): void }>()
+const emit = defineEmits<{(e: 'next' | 'back'): void }>()
 
 const continueDisabled = computed(() => {
   return !selection.value
