@@ -9,6 +9,7 @@ import { getGroupLabel } from '~/utils/dashboard/group'
 import { type NotificationsManagementDashboardRow } from '~/types/notifications/management'
 import type { DashboardType } from '~/types/dashboard'
 import { useNotificationsManagementDashboards } from '~/composables/notifications/useNotificationsManagementDashboards'
+import { NotificationsManagementDialogWebhook } from '#components'
 
 const { t: $t } = useI18n()
 
@@ -39,13 +40,23 @@ const wrappedDashboardGroups = computed(() => {
   }
 })
 
-const onEdit = (col: 'delete' | 'subscriptions' | 'webhook' | 'networks', row: NotificationsManagementDashboardRow) => {
+type Dialog = 'delete' | 'subscriptions' | 'webhook' | 'networks'
+const activeDialog = ref<Dialog | ''>('')
+const dialog = useDialog()
+
+const onEdit = (col: Dialog, row: NotificationsManagementDashboardRow) => {
   switch (col) {
     case 'subscriptions':
       alert('TODO: edit subscriptions' + row.group_id)
       break
     case 'webhook':
-      alert('TODO: edit webhook' + row.group_id)
+      // alert('TODO: edit webhook' + row.group_id)
+      activeDialog.value = col
+      dialog.open(NotificationsManagementDialogWebhook, {
+        props: {
+          header: $t('notifications.dashboards.dialog.heading-webhook'),
+        },
+      })
       break
     case 'networks':
       alert('TODO: edit networks' + row.group_id)

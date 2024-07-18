@@ -48,18 +48,7 @@ const openEpochDuties = () => {
     <DashboardGroupSelection v-model="selectedGroupId" class="group-selection" :include-all="true" />
   </div>
   <div class="status-holder">
-    <div class="status">
-      <ValidatorTableStatus status="online" />
-    </div>
-    <div class="status">
-      <ValidatorTableStatus status="exiting" />
-    </div>
-    <div class="status">
-      <ValidatorTableStatus status="withdrawn" />
-    </div>
-    <div class="status">
-      <ValidatorTableStatus status="offline" />
-    </div>
+  
     <div class="status">
       <ValidatorTableStatus status="pending" :position="12345" />
     </div>

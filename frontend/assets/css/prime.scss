@@ -59,6 +59,20 @@
       }
     }
   }
+  &.p-button-outlined {
+    background: transparent;
+    color: var(--button-color-active);
+    border-color: var(--button-color-active);
+    &:not(:disabled):hover {
+      background: var(--button-color-hover);
+      color: var(--primary-contrast-color);
+    }
+    &:not(:disabled):active {
+      background: var(--button-color-pressed);
+      color: var(--primary-contrast-color);
+    }
+  
+  }
 }
 
 // Dialog
@@ -160,6 +174,7 @@
     width: 20px;
     height: 20px;
     border-radius: var(--border-radius);
+    border: 1px solid var(--checkbox-border-color);
     background: var(--checkbox-background-color);
     &.p-highlight:not(:hover) {
       background: var(--primary-color);

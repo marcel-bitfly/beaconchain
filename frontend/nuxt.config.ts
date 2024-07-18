@@ -30,6 +30,18 @@ export default defineNuxtConfig({
       cert: 'server.crt'
     }
   },
+  // imports: {
+  //   presets: [
+  //     {
+  //       from: '@fortawesome/vue-fontawesome',
+  //       imports: ['FontAwesomeIcon'],
+  //     },
+  //     {
+  //       from: '@fortawesome/pro-regular-svg-icons',
+  //       imports: ['faInfoCircle']
+  //     },
+  //   ],
+  // },
   runtimeConfig: {
     public: {
       apiClient: process.env.PUBLIC_API_CLIENT,

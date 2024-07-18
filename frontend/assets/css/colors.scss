@@ -1,6 +1,7 @@
 // When updating values here, please keep in mind that you might have to updated utils/colors.ts too
 
 :root {
+  --dark-dark-grey: #5C4E4E;
   --white: #ffffff;
   --grey: #a5a5a5;
   --medium-grey: #b3b3b3;
@@ -11,6 +12,7 @@
   --light-grey-3: #d3d3d3;
   --light-grey-4: #dddddd;
   --light-grey-5: #eaeaea;
+  --light-grey-7: #C0C0C0;
   --dark-grey: #5c4e4e;
   --very-dark-grey: #362f32;
   --asphalt: #484f56;
@@ -62,6 +64,10 @@
   --button-text-color-dark-pattern: var(--light-black);
   --button-text-color-disabled: var(--grey-4);
   --button-text-color-dangerous: var(--white);
+
+  --button-secondary-background-color: var(--light-grey);
+  --button-secondary-background-color--hover: var(--light-grey-4 );
+  --button-secondary-border-color: var(--light-grey-7);
 
   --checkbox-background-color: var(--light-grey-4);
 
@@ -146,9 +152,14 @@
     --button-color-dark-pattern: var(--light-grey);
     --button-text-color-disabled: var(--light-grey);
     --button-text-color-dangerous: var(--light-grey);
-
-    --checkbox-background-color: var(--light-grey);
-
+    
+    --button-secondary-background-color: var(--very-dark-grey);
+    --button-secondary-background-color--hover: var(--light-black);
+    --button-secondary-border-color: var(--dark-dark-grey);
+       
+    --checkbox-background-color: var(--very-dark-grey);
+    --checkbox-border-color: var(--dark-grey);
+    
     --container-background: var(--light-black);
     --container-color: var(--grey-4);
     --container-border-color: var(--dark-grey);

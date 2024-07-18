@@ -1,5 +1,8 @@
 import type { DialogProps } from 'primevue/dialog'
 import type { DynamicDialogInstance } from 'primevue/dynamicdialogoptions'
+import { warn } from 'vue'
+
+const nestedDialogs = ref(new Set<string>())
 
 export function useBcDialog <T> (dialogProps?: DialogProps) {
   const { width } = useWindowSize()
@@ -63,5 +66,28 @@ export function useBcDialog <T> (dialogProps?: DialogProps) {
       dialogRef.value.close()
     }
   }
-  return { props, dialogRef, setHeader }
+  const registerAsChildOf = (dialogName: string) => {
+    // if (nestedDialogs.value.has(dialogName)) {
+    //   return warn(`Dialog with name: '${dialogName}' is already registered`)
+    // }
+    nestedDialogs.value.add(dialogName)
+    onUnmounted(() => {
+      nestedDialogs.value.delete(dialogName)
+    })
+  }
+  const hasOpenDialogs = <TDialogName extends string>(id: TDialogName) => {
+    return nestedDialogs.value.has(id)
+  }
+  // mehrere Children sollen sich mit dem gleichen Keyd registrieren
+  // Parent muss nicht alle Kinder kennen
+  // Types: registrierte strings vorschlagen
+  return {
+    dialogRef,
+    nestedDialogs,
+    hasOpenDialogs,
+    props,
+    registerAsChildOf,
+    setHeader
+    // unRegisterParentDialog
+  }
 }

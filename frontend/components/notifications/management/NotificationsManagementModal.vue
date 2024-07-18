@@ -12,15 +12,23 @@ const { t: $t } = useI18n()
 const visible = defineModel<boolean>()
 
 const showInDevelopment = Boolean(useRuntimeConfig().public.showInDevelopment)
-
+const { hasOpenDialogs, nestedDialogs } = useBcDialog()
+hasOpenDialogs('ManagementModal')
 </script>
 
 <template>
   <BcDialog
     v-model="visible"
+    :close-on-escape="hasOpenDialogs('ManagementModal')"
     :header="$t('notifications.management.title')"
     class="notifications-management-modal-container"
   >
+    <div style="text-align: right;">
+      <!-- hasOpenDialogs: {{ hasOpenDialogs }} -->
+      nestedDialogs: {{ nestedDialogs }}
+      <br>
+      hasOpenDialogs: {{ hasOpenDialogs('ManagementModal') }}
+    </div>
     <div id="notifications-management-search-placholder" />
     <TabView lazy class="notifications-management-tab-view">
       <TabPanel>

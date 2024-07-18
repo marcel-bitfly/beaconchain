@@ -341,8 +341,15 @@
           "accounts": "Accounts ({count} Subscription) |Accounts ({count} Subscriptions)",
           "accounts_shortened": "Accounts ({count} Sub) |Accounts ({count} Subs)"
         }
+      },
+      "dialog": {
+        "button-webhook-test": "Send Test Notification",
+        "heading-webhook": "Edit Webhook",
+        "info-send_via_discord": "Enable this to receive notifications via Discord. Ensure you have a Discord webhook set up.",
+        "label-webhook-url": "Webhook URL",
+        "label-send_via_discord": "Send via Discord",
+        "placeholder-webhook": "https://webhook.example.com/id"
       }
-        
     }
   },
   "dashboard": {
